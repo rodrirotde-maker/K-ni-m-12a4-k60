@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỷ Niệm 12A4 K60 - Đếm Ngược Tốt Nghiệp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --dark: #2d3436;
+            --light: #f4f6f9;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--light); font-family: 'Montserrat', sans-serif; color: var(--dark); line-height: 1.6; }
+        header { background: linear-gradient(135deg, #ff6b6b, #ee5253); color: white; text-align: center; padding: 3rem 1rem; }
+        header h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; margin-bottom: 0.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+        .countdown-container { background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-bottom: 2rem; }
+        .countdown-timer { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .time-box { background: var(--light); padding: 1rem; border-radius: 10px; min-width: 80px; }
+        .time-box span { display: block; font-size: 2rem; font-weight: 700; color: var(--primary); }
+        .section-title { text-align: center; margin-bottom: 1.5rem; font-size: 2rem; color: var(--dark); }
+        .grid-students { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+        .student-card { background: white; padding: 1rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tập Thể Lớp 12A4 K60</h1>
+        <p>Hành trình 3 năm thanh xuân - Lưu giữ mãi kỷ niệm đẹp</p>
+    </header>
+
+    <div class="container">
+        <!-- Đếm ngược ngày tốt nghiệp 26/06/2027 -->
+        <div class="countdown-container">
+            <h2>Đếm Ngược Ngày Tốt Nghiệp THPT (26/06/2027)</h2>
+            <div class="countdown-timer" id="timer">
+                <div class="time-box"><span id="days">00</span>Ngày</div>
+                <div class="time-box"><span id="hours">00</span>Giờ</div>
+                <div class="time-box"><span id="minutes">00</span>Phút</div>
+                <div class="time-box"><span id="seconds">00</span>Giây</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Danh Sách Sĩ Tử 12A4 K60 (48 Thành Viên)</h2>
+        <div class="grid-students" id="student-list">
+            <div class="student-card">Thành viên 01</div>
+            <div class="student-card">Thành viên 02</div>
+            <div class="student-card">Phạm Thúy An</div>
+            <div class="student-card">Cầm Thị Chi</div>
+            <div class="student-card">Triệu Thùy Linh</div>
+            <div class="student-card">Đặng Thùy Trang</div>
+        </div>
+    </div>
+
+    <script>
+        const targetDate = new Date("June 26, 2027 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = String(days).padStart(2, '0');
+                document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+                document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
